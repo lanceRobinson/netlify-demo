@@ -1,6 +1,3 @@
-[build]
-  command = "echo blah"
-
 [dev]
   command = "npm run dev"
   framework = "#custom"
