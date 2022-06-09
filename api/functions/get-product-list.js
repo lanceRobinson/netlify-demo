@@ -16,7 +16,6 @@
  */
 
 const { postToShopify } = require("./utils/postToShopify");
-const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async () => {
   try {
@@ -75,7 +74,10 @@ exports.handler = async () => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse),
-      headers: CORS_HEADERS,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
     };
   } catch (error) {
     console.log(error);

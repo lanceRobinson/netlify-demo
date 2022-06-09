@@ -38,7 +38,6 @@
 
 const { createCartWithItem } = require("./utils/createCartWithItem");
 const { addItemToCart } = require("./utils/addItemToCart");
-const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async (event) => {
   const { cartId, itemId, quantity } = JSON.parse(event.body);
@@ -57,7 +56,10 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesAdd.cart),
-      headers: CORS_HEADERS,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
     };
   } else {
     console.log("--------------------------------");
@@ -71,7 +73,10 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(createCartResponse.cartCreate.cart),
-      headers: CORS_HEADERS,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
     };
   }
 };

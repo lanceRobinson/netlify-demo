@@ -18,7 +18,6 @@
  */
 
 const { postToShopify } = require("./utils/postToShopify");
-const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async (event) => {
   const { cartId } = JSON.parse(event.body);
@@ -91,7 +90,10 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse),
-      headers: CORS_HEADERS,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
     };
   } catch (error) {
     console.log(error);
