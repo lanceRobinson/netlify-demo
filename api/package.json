@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chrishannaby/shopify-next-netlify/issues"
   },
-  "homepage": "https://github.com/chrishannaby/shopify-next-netlify#readme"
+  "homepage": "https://github.com/chrishannaby/shopify-next-netlify#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
 }
