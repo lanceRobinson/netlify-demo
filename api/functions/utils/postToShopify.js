@@ -1,5 +1,5 @@
+const fetch = require("node-fetch");
 exports.postToShopify = async ({ query, variables }) => {
-  const fetch = await import("node-fetch");
   try {
     const result = await fetch(process.env.SHOPIFY_API_ENDPOINT, {
       method: "POST",
