@@ -31,7 +31,7 @@ export async function getProductList() {
   );
   const json = await response.json();
   console.log(json);
-  return json.product.edges;
+  return json.products.edges;
 }
 
 export async function getStaticPaths() {
