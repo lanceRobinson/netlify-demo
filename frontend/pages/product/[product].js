@@ -26,15 +26,11 @@ export default function ProductPage({ product }) {
 }
 
 export async function getProductList() {
-  let products = await fetch(
+  const response = await fetch(
     `${process.env.FUNCTIONS_ENDPOINT}/.netlify/functions/get-product-list`
-  )
-    .then((res) => res.json())
-    .then((response) => {
-      console.log("--- built product pages ---");
-      return response.products.edges;
-    });
-  return products;
+  );
+  const json = await response.json();
+  console.log(json);
 }
 
 export async function getStaticPaths() {
