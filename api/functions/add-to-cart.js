@@ -57,7 +57,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesAdd.cart),
-      CORS_HEADERS,
+      headers: CORS_HEADERS,
     };
   } else {
     console.log("--------------------------------");
@@ -71,7 +71,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(createCartResponse.cartCreate.cart),
-      CORS_HEADERS,
+      headers: CORS_HEADERS,
     };
   }
 };

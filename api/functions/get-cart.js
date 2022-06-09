@@ -91,7 +91,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse),
-      CORS_HEADERS,
+      headers: CORS_HEADERS,
     };
   } catch (error) {
     console.log(error);

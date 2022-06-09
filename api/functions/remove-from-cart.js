@@ -35,7 +35,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesRemove.cart),
-      CORS_HEADERS,
+      headers: CORS_HEADERS,
     };
   } catch (error) {
     console.log(error);
