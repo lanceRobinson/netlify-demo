@@ -76,7 +76,7 @@ export default function ProductPageContent({ product }) {
     };
 
     const cartResponse = await fetch(
-      `${process.env.SHOPIFY_API_ENDPOINT}/.netlify/functions/add-to-cart`,
+      `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/add-to-cart`,
       {
         method: "post",
         body: JSON.stringify(body),
