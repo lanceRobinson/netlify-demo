@@ -18,5 +18,8 @@
   "homepage": "https://github.com/chrishannaby/shopify-next-netlify#readme",
   "dependencies": {
     "node-fetch": "^3.2.6"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.8.0"
   }
 }

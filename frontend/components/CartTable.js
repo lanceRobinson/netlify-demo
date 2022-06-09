@@ -1,17 +1,20 @@
-import { formatPrice, itemTotal } from '../utilityFunctions';
+import { formatPrice, itemTotal } from "../utilityFunctions";
 
 export default function CartTable({ cartItems, cartId, removeItem }) {
   let removeItemFromCart = (itemId) => {
-    fetch(`${process.env.NETLIFY_URL}/.netlify/functions/remove-from-cart`, {
-      method: 'POST',
-      body: JSON.stringify({
-        cartId: cartId,
-        lineId: itemId,
-      }),
-    })
+    fetch(
+      `${process.env.FUNCTIONS_ENDPOINT}/.netlify/functions/remove-from-cart`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          cartId: cartId,
+          lineId: itemId,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((response) => {
-        console.log('--- Item deleted ---');
+        console.log("--- Item deleted ---");
 
         removeItem(response.lines.edges);
         return response;
@@ -34,8 +37,8 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
           item = item.node;
 
           let merchandiseTitle =
-            item.merchandise.title === 'Default Title'
-              ? ''
+            item.merchandise.title === "Default Title"
+              ? ""
               : `(${item.merchandise.title})`;
           return (
             <tr className="cart-table-row" key={`cartItem${index}`}>

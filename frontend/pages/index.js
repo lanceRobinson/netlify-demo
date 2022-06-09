@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import ProductListing from '@components/ProductListing';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
+import Head from "next/head";
+import ProductListing from "@components/ProductListing";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 export default function Home({ products }) {
   return (
@@ -27,11 +27,11 @@ export default function Home({ products }) {
 
 export async function getStaticProps() {
   let products = await fetch(
-    `${process.env.NETLIFY_URL}/.netlify/functions/get-product-list`
+    `${process.env.FUNCTIONS_ENDPOINT}/.netlify/functions/get-product-list`
   )
     .then((res) => res.json())
     .then((response) => {
-      console.log('--- built home page ---');
+      console.log("--- built home page ---");
       return response.products.edges;
     });
 

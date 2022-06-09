@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import ProductPageContent from '@components/ProductPageContent';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import { useAppContext } from '../../state';
+import Head from "next/head";
+import ProductPageContent from "@components/ProductPageContent";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
+import { useAppContext } from "../../state";
 
 export default function ProductPage({ product }) {
   const { cartId } = useAppContext();
@@ -27,11 +27,11 @@ export default function ProductPage({ product }) {
 
 export async function getProductList() {
   let products = await fetch(
-    `${process.env.NETLIFY_URL}/.netlify/functions/get-product-list`
+    `${process.env.FUNCTIONS_ENDPOINT}/.netlify/functions/get-product-list`
   )
     .then((res) => res.json())
     .then((response) => {
-      console.log('--- built product pages ---');
+      console.log("--- built product pages ---");
       return response.products.edges;
     });
   return products;
