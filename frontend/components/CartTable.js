@@ -3,7 +3,7 @@ import { formatPrice, itemTotal } from "../utilityFunctions";
 export default function CartTable({ cartItems, cartId, removeItem }) {
   let removeItemFromCart = (itemId) => {
     fetch(
-      `${process.env.FUNCTIONS_ENDPOINT}/.netlify/functions/remove-from-cart`,
+      `${process.env.SHOPIFY_API_ENDPOINT}/.netlify/functions/remove-from-cart`,
       {
         method: "POST",
         body: JSON.stringify({
