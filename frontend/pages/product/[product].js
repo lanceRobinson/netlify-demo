@@ -27,7 +27,7 @@ export default function ProductPage({ product }) {
 
 export async function getProductList() {
   const response = await fetch(
-    `${process.env.SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
+    `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
   );
   const json = await response.json();
   console.log(json);

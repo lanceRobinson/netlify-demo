@@ -27,7 +27,7 @@ export default function Home({ products }) {
 
 export async function getStaticProps() {
   let products = await fetch(
-    `${process.env.SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
+    `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
   )
     .then((res) => res.json())
     .then((response) => {

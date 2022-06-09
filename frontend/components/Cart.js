@@ -19,7 +19,7 @@ export default function Cart() {
     } else {
       setCartId(localCart);
       data = fetch(
-        `${process.env.SHOPIFY_API_ENDPOINT}/.netlify/functions/get-cart`,
+        `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-cart`,
         {
           method: "post",
           body: JSON.stringify({
