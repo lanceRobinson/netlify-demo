@@ -13,15 +13,16 @@
  * ```
  */
 
-const { postToShopify } = require('./utils/postToShopify')
+const { postToShopify } = require("./utils/postToShopify");
+const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async (event) => {
-  const { itemHandle } = JSON.parse(event.body)
+  const { itemHandle } = JSON.parse(event.body);
 
   try {
-    console.log('--------------------------------')
-    console.log('Retrieving product details...')
-    console.log('--------------------------------')
+    console.log("--------------------------------");
+    console.log("Retrieving product details...");
+    console.log("--------------------------------");
     const shopifyResponse = await postToShopify({
       query: `
         query getProduct($handle: String!) {
@@ -68,13 +69,14 @@ exports.handler = async (event) => {
       variables: {
         handle: itemHandle,
       },
-    })
+    });
 
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse),
-    }
+      CORS_HEADERS,
+    };
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};

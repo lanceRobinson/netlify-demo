@@ -36,39 +36,42 @@
  * ```
  */
 
-const { createCartWithItem } = require('./utils/createCartWithItem')
-const { addItemToCart } = require('./utils/addItemToCart')
+const { createCartWithItem } = require("./utils/createCartWithItem");
+const { addItemToCart } = require("./utils/addItemToCart");
+const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async (event) => {
-  const { cartId, itemId, quantity } = JSON.parse(event.body)
+  const { cartId, itemId, quantity } = JSON.parse(event.body);
 
   if (cartId) {
-    console.log('--------------------------------')
-    console.log('Adding item to existing cart...')
-    console.log('--------------------------------')
+    console.log("--------------------------------");
+    console.log("Adding item to existing cart...");
+    console.log("--------------------------------");
 
     const shopifyResponse = await addItemToCart({
       cartId,
       itemId,
       quantity,
-    })
+    });
 
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesAdd.cart),
-    }
+      CORS_HEADERS,
+    };
   } else {
-    console.log('--------------------------------')
-    console.log('Creating new cart with item...')
-    console.log('--------------------------------')
+    console.log("--------------------------------");
+    console.log("Creating new cart with item...");
+    console.log("--------------------------------");
     const createCartResponse = await createCartWithItem({
       itemId,
       quantity,
-    })
+    });
 
     return {
       statusCode: 200,
       body: JSON.stringify(createCartResponse.cartCreate.cart),
-    }
+      CORS_HEADERS,
+    };
   }
-}
+};

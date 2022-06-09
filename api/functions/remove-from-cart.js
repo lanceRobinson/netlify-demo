@@ -17,15 +17,16 @@
  * ```
  */
 
-const { removeItemFromCart } = require('./utils/removeItemFromCart');
+const { removeItemFromCart } = require("./utils/removeItemFromCart");
+const { CORS_HEADERS } = require("./utils/corsHeaders.js");
 
 exports.handler = async (event) => {
   const { cartId, lineId } = JSON.parse(event.body);
 
   try {
-    console.log('--------------------------------');
-    console.log('Removing item from cart...');
-    console.log('--------------------------------');
+    console.log("--------------------------------");
+    console.log("Removing item from cart...");
+    console.log("--------------------------------");
     const shopifyResponse = await removeItemFromCart({
       cartId,
       lineId,
@@ -34,6 +35,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesRemove.cart),
+      CORS_HEADERS,
     };
   } catch (error) {
     console.log(error);
