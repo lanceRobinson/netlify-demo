@@ -40,6 +40,16 @@ const { createCartWithItem } = require("./utils/createCartWithItem");
 const { addItemToCart } = require("./utils/addItemToCart");
 
 exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+    };
+  }
+
   const { cartId, itemId, quantity } = JSON.parse(event.body);
 
   if (cartId) {
