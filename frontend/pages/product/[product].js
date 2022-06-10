@@ -2,11 +2,9 @@ import Head from "next/head";
 import ProductPageContent from "@components/ProductPageContent";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import { useAppContext } from "../../state";
+import { getProductList } from "@api/getProductList";
 
 export default function ProductPage({ product }) {
-  const { cartId } = useAppContext();
-
   return (
     <div className="container">
       <Head>
@@ -25,18 +23,9 @@ export default function ProductPage({ product }) {
   );
 }
 
-export async function getProductList() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
-  );
-  const json = await response.json();
-  console.log(json);
-  return json.products.edges;
-}
-
 export async function getStaticPaths() {
-  let products = await getProductList();
-  let routes = products.map((p) => {
+  const products = await getProductList();
+  let routes = products.edges.map((p) => {
     const params = `/product/${p.node.handle}`;
     return params;
   });
@@ -47,7 +36,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   let products = await getProductList();
 
-  let product = products.find((p) => {
+  let product = products.edges.find((p) => {
     return p.node.handle === params.product;
   });
 

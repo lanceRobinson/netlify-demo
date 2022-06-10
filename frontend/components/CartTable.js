@@ -2,16 +2,13 @@ import { formatPrice, itemTotal } from "../utilityFunctions";
 
 export default function CartTable({ cartItems, cartId, removeItem }) {
   let removeItemFromCart = (itemId) => {
-    fetch(
-      `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/remove-from-cart`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          cartId: cartId,
-          lineId: itemId,
-        }),
-      }
-    )
+    fetch("/.netlify/functions/remove-from-cart", {
+      method: "POST",
+      body: JSON.stringify({
+        cartId: cartId,
+        lineId: itemId,
+      }),
+    })
       .then((response) => response.json())
       .then((response) => {
         console.log("--- Item deleted ---");

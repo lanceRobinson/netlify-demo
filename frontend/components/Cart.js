@@ -12,22 +12,17 @@ export default function Cart() {
   useEffect(() => {
     const localCart = cartId;
 
-    let data;
-
     if (localCart === null) {
       setShowProducts(false);
     } else {
       setCartId(localCart);
-      data = fetch(
-        `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-cart`,
-        {
-          method: "post",
-          body: JSON.stringify({
-            cartId: localCart,
-          }),
-          headers: { "Content-Type": "application/json" },
-        }
-      )
+      data = fetch("/.netlify/functions/get-cart", {
+        method: "post",
+        body: JSON.stringify({
+          cartId: localCart,
+        }),
+        headers: { "Content-Type": "application/json" },
+      })
         .then((res) => res.json())
         .then((response) => {
           setProducts(response?.cart?.lines.edges);

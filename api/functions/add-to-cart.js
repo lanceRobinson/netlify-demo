@@ -40,18 +40,6 @@ const { createCartWithItem } = require("./utils/createCartWithItem");
 const { addItemToCart } = require("./utils/addItemToCart");
 
 exports.handler = async (event) => {
-  if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-        "Access-Control-Allow-Headers":
-          "Origin, X-Requested-With, Content-Type, Accept",
-      },
-    };
-  }
-
   const { cartId, itemId, quantity } = JSON.parse(event.body);
 
   if (cartId) {
@@ -68,10 +56,6 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesAdd.cart),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      },
     };
   } else {
     console.log("--------------------------------");
@@ -85,10 +69,6 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(createCartResponse.cartCreate.cart),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      },
     };
   }
 };

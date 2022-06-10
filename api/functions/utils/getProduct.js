@@ -1,27 +1,7 @@
-/**
- * Get Product API Endpoint
- *
- * * Purpose: Retrieve data on a specific product
- * @param {string} itemHandle - kebab-cased-product-name
- *
- * Example:
- * ```
- * fetch('/.netlify/functions/get-product', {
- *   method: 'POST',
- *   body: JSON.stringify({ itemHandle: 'my-product' })
- * })
- * ```
- */
+const { postToShopify } = require("./postToShopify");
 
-const { postToShopify } = require("./utils/postToShopify");
-
-exports.handler = async (event) => {
-  const { itemHandle } = JSON.parse(event.body);
-
+exports.getProduct = async ({ itemHandle }) => {
   try {
-    console.log("--------------------------------");
-    console.log("Retrieving product details...");
-    console.log("--------------------------------");
     const shopifyResponse = await postToShopify({
       query: `
         query getProduct($handle: String!) {
@@ -70,14 +50,7 @@ exports.handler = async (event) => {
       },
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(shopifyResponse),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      },
-    };
+    return shopifyResponse;
   } catch (error) {
     console.log(error);
   }

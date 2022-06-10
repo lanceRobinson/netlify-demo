@@ -2,6 +2,7 @@ import Head from "next/head";
 import ProductListing from "@components/ProductListing";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import { getProductList } from "@api/getProductList";
 
 export default function Home({ products }) {
   return (
@@ -26,18 +27,11 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  let products = await fetch(
-    `${process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT}/.netlify/functions/get-product-list`
-  )
-    .then((res) => res.json())
-    .then((response) => {
-      console.log("--- built home page ---");
-      return response.products.edges;
-    });
+  const products = await getProductList();
 
   return {
     props: {
-      products,
+      products: products.edges,
     },
   };
 }
