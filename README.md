@@ -14,7 +14,7 @@ SHOPIFY_API_ENDPOINT=https://exampleshopify/graphql.json
 First, run the development server:
 
 ```bash
-npm start
+netlify dev
 ```
 
 Open [http://localhost:8888](http://localhost:8888) with your browser to see the result.
