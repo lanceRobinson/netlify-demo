@@ -25,7 +25,7 @@ export default function ProductPage({ product }) {
 
 export async function getStaticPaths() {
   const products = await getProductList();
-  let routes = products.edges.map((p) => {
+  let routes = products.map((p) => {
     const params = `/product/${p.node.handle}`;
     return params;
   });
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   let products = await getProductList();
 
-  let product = products.edges.find((p) => {
+  let product = products.find((p) => {
     return p.node.handle === params.product;
   });
 
