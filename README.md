@@ -18,10 +18,3 @@ netlify dev
 ```
 
 Open [http://localhost:8888](http://localhost:8888) with your browser to see the result.
-
-### Installation options
-
-1. Fork this repo
-2. Navigate to the directory and run `npm run dev`
-3. Make your changes
-4. Connect to [Netlify](https://url.netlify.com/Bk4UicocL) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)
