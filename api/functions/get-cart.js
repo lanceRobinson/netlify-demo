@@ -20,6 +20,18 @@
 const { postToShopify } = require("./utils/postToShopify");
 
 exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":
+          "Origin, X-Requested-With, Content-Type, Accept",
+      },
+    };
+  }
+
   const { cartId } = JSON.parse(event.body);
 
   try {
