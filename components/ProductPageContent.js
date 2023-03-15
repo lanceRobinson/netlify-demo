@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { formatPrice } from "../utilityFunctions";
 import { useAppContext } from "../state";
+import { useRouter } from 'next/router'
 
 function getCurrentVariantObject(vars, id) {
   return vars.filter((v) => {
@@ -57,6 +58,8 @@ export default function ProductPageContent({ product }) {
 
   const { cartId, setCartId } = useAppContext();
 
+  const router = useRouter()
+
   useEffect(() => {
     let variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2
       .amount;
@@ -83,7 +86,7 @@ export default function ProductPageContent({ product }) {
 
     const data = await cartResponse.json();
     setCartId(data.id);
-
+    router.push('/')
     return data;
   };
 

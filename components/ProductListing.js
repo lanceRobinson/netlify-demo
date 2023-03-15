@@ -3,6 +3,7 @@ import Link from 'next/link';
 export default function ProductListing({ product }) {
   let image = product.images.edges[0].node;
   return (
+
     <li className="product-card">
       <div className="product-card-frame">
         <img className="prodimg" src={image.src} alt={image.altText} />

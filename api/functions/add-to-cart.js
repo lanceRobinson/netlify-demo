@@ -53,6 +53,8 @@ exports.handler = async (event) => {
       quantity,
     });
 
+    console.log('shopifyResponse',shopifyResponse)
+
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse.cartLinesAdd.cart),

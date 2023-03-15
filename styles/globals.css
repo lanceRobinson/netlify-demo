@@ -69,7 +69,8 @@ input {
 }
 .app-header {
   flex-direction: column;
-  padding: 40px 40px 0;
+  /*padding: 40px 40px 0;*/
+
 }
 .app-header,
 .main-nav {
@@ -143,7 +144,7 @@ input {
 .testimonial {
   width: 100%;
   height: 280px;
-  background: url(/testimonial-bg.jpeg) 50% no-repeat;
+  background: url(/background-img.jpg) 50% no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;

@@ -4,10 +4,9 @@ export default function Footer() {
       <footer>
         <section className="testimonial">
           <h2>
-            "The interplay of flavors between the cheese, meats and fruits is an
-            absolute delight."
+            "SEE THE TRANSFORMATION OF SOME OF THE WORLD’S LEADING FITNESS FACILITIES."
           </h2>
-          <p>Paul Hotcakes</p>
+          <h1>"EXPERIENCE. EXPERTISE. EXCELLENCE."</h1>
         </section>
         <section className="app-footer-links">
           <ul>
