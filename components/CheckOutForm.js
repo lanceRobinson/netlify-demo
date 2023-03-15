@@ -60,7 +60,7 @@ export default function CheckOutForm() {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                // return_url: "https://www.google.com",
+                return_url: "https://incredible-swan-5b6a3e.netlify.app/success",
             },
         });
         console.log('payment error', error)
@@ -92,11 +92,11 @@ export default function CheckOutForm() {
                 onChange={(e) => setEmail(e.target.value)}
             />
             <PaymentElement id="payment-element" options={paymentElementOptions} />
-            <Button disabled={isLoading || !stripe || !elements} id="submit">
+            <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay Now"}
         </span>
-            </Button>
+            </button>
             {/* Show any error or success messages */}
             {message && <div id="payment-message">{message}</div>}
         </form>
