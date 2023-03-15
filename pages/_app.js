@@ -1,14 +1,16 @@
-import { AppWrapper } from '../state.js'; // import based on where you put it
+import React from "react";
+import {AppWrapper} from '../state.js'; // import based on where you put it
 import '@styles/globals.css';
-import SiteMenu from "@components/SiteMenu";
+import Search from "@components/Search";
 
-export function Application({ Component, pageProps }) {
-  return (
-    <AppWrapper>
 
-      <Component {...pageProps} />
-    </AppWrapper>
-  );
+export function Application({Component, pageProps}) {
+    return (
+        <AppWrapper>
+            <Search/>
+            <Component {...pageProps} />
+        </AppWrapper>
+    );
 }
 
 export default Application;
