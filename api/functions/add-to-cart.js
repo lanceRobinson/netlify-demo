@@ -67,7 +67,7 @@ exports.handler = async (event) => {
     const createCartResponse = await createCartWithItem({
       itemId,
       quantity,
-    });
+    }).catch(e => console.log(e));
 
     console.log('createCartResponse', createCartResponse)
     return {
