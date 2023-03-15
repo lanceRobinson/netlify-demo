@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAppContext } from "../state";
 import CartTable from "./CartTable";
 import CartTotal from "./CartTotal";
-import CheckoutForm from "./CheckoutForm";
+import CheckOutForm from "./CheckOutForm";
 import Grid from "@mui/material/Grid";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -75,7 +75,7 @@ export default function Cart() {
           <Grid item xs={4}>
           {clientSecret && (
               <Elements options={options} stripe={stripePromise}>
-                <CheckoutForm />
+                <CheckOutForm />
               </Elements>
           )}
           </Grid>

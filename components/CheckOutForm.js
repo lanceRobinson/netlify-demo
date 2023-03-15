@@ -6,7 +6,7 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 import Button from "@mui/material/Button";
-export default function CheckoutForm() {
+export default function CheckOutForm() {
     const stripe = useStripe();
     const elements = useElements();
 
