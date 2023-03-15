@@ -1,14 +1,14 @@
 const fetch = require("node-fetch");
 exports.postToShopify = async ({ query, variables }) => {
-  console.log('process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT',process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT)
-  console.log('process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN',process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN)
+  console.log('process.env.SHOPIFY_API_ENDPOINT',process.env.SHOPIFY_API_ENDPOINT)
+  console.log('process.env.SHOPIFY_STOREFRONT_API_TOKEN',process.env.SHOPIFY_STOREFRONT_API_TOKEN)
   try {
-    const result = await fetch(process.env.NEXT_PUBLIC_SHOPIFY_API_ENDPOINT, {
+    const result = await fetch(process.env.SHOPIFY_API_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-Shopify-Storefront-Access-Token":
-          process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN,
+          process.env.SHOPIFY_STOREFRONT_API_TOKEN,
       },
       body: JSON.stringify({ query, variables }),
     }).then((res) => res.json());
