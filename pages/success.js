@@ -20,7 +20,7 @@ export default function CartPage() {
         <article className="cart-page-content">
             <Paper>
                 <h1>You have Successfully checked out</h1>
-                <Button varient='text'>Buy More Stuff!</Button>
+                <Button varient='text'>Buy More Stuff and get Swole!</Button>
             </Paper>
         </article>
       </main>
