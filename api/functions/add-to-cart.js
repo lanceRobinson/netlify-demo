@@ -40,6 +40,7 @@ const { createCartWithItem } = require("./utils/createCartWithItem");
 const { addItemToCart } = require("./utils/addItemToCart");
 
 exports.handler = async (event) => {
+  console.log('!!!event.body', event.body)
   const { cartId, itemId, quantity } = JSON.parse(event.body);
 
   if (cartId) {
