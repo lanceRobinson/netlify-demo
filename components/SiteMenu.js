@@ -85,6 +85,7 @@ export default function SiteMenu() {
                     <Link href="/">
                         <img src="/logo.png" alt="logo" style={classes.logo}/>
                     </Link>
+                    <Typography varient={'h3'}> Deploy Preivew </Typography>
                     <ButtonGroup variant="text" aria-label="text button group" display="flex" color="inherit">
                         {MenuButtons.map((button,i) => <MenuButton name={button} index={i}/>)}
                     </ButtonGroup>
