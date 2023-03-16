@@ -33,13 +33,13 @@ export default function Footer() {
         </section>
         <div className="project-credit">
           <p>
-            This project is
-            <a href="https://github.com/chrishannaby/shopify-next-netlify">
-              open source on GitHub
-            </a>
-            , hosted with <a href="https://bit.ly/2G29YwK">Netlify</a>, built
-            with Next.js and made with 💚 by Cassidy Williams (
-            <a href="https://twitter.com/cassidoo">@cassidoo</a>)
+            {/*This project is*/}
+            {/*<a href="https://github.com/chrishannaby/shopify-next-netlify">*/}
+            {/*  open source on GitHub*/}
+            {/*</a>*/}
+            {/*, hosted with <a href="https://bit.ly/2G29YwK">Netlify</a>, built*/}
+            {/*with Next.js and made with 💚 by Cassidy Williams (*/}
+            {/*<a href="https://twitter.com/cassidoo">@cassidoo</a>)*/}
           </p>
         </div>
       </footer>
