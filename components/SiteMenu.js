@@ -86,7 +86,7 @@ export default function SiteMenu() {
                         <img src="/logo.png" alt="logo" style={classes.logo}/>
                     </Link>
                     <ButtonGroup variant="text" aria-label="text button group" display="flex" color="inherit">
-                        {MenuButtons.map((button,i) => <MenuButton name={button} index={i}/>)}
+                        {MenuButtons.map((button,i) => <MenuButton key={`menu-button-${i}`} name={button} index={i}/>)}
                     </ButtonGroup>
                     <ButtonGroup variant="text" color="inherit">
                             <div id={'search'} margin={'auto'}></div>

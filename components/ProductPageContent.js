@@ -49,6 +49,7 @@ function VariantForm({ vars, current, pick, setQ }) {
 export default function ProductPageContent({ product }) {
   let vars = product.variants.edges;
 
+  console.log('ProductPageContent.js - product:', product)
   // Chosen variant ID
   const [chosenVariant, setChosenVariant] = useState(vars[0].node.id);
   // Quantity of the chosen variant
@@ -61,6 +62,7 @@ export default function ProductPageContent({ product }) {
   const router = useRouter()
 
   useEffect(() => {
+    console.log('ProductPageContent.js - product:', product)
     let variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2
       .amount;
 
