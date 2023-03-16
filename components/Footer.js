@@ -1,38 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import {Badge} from "@mui/material";
+import FocusWrapper from "@components/FocusWrapper";
 
-const defaultProps = {
-  border: '2px solid',
-  bgcolor: 'pink',
-  borderColor: '#05bdba',
-  m:1,
-  p: 1,
-  width:'100%'
 
-  // style: { width: '5rem', height: '5rem' },
-};
 
-function StaticWrapper({visible=true, children}) {
-  return (
-      <div>
-      <Badge
-          badgeContent={"Static Content"}
-          display={'flex'}
-          color="primary"
-          // m={1}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'middle',
-          }}
-      >
-      <Box className="StaticWrapper"   borderRadius={3} {...defaultProps}>
-        {children}
-      </Box>
-      </Badge>
-      </div>
-  );
-}
+
 
 export default function Footer() {
   return (
@@ -44,7 +17,7 @@ export default function Footer() {
           </h2>
           <h1>"EXPERIENCE. EXPERTISE. EXCELLENCE."</h1>
         </section>
-        <StaticWrapper>
+
         <section className="app-footer-links">
 
           <ul>
@@ -70,7 +43,7 @@ export default function Footer() {
             />
           </div>
         </section>
-        </StaticWrapper>
+
         <div className="project-credit">
           <p>
             This project is

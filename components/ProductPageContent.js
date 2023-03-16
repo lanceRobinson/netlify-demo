@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatPrice } from "../utilityFunctions";
 import { useAppContext } from "../state";
 import { useRouter } from 'next/router'
+import FocusWrapper from "@components/FocusWrapper";
 
 function getCurrentVariantObject(vars, id) {
   return vars.filter((v) => {
@@ -50,6 +51,7 @@ export default function ProductPageContent({ product }) {
   let vars = product.variants.edges;
 
   console.log('ProductPageContent.js - product:', product)
+
   // Chosen variant ID
   const [chosenVariant, setChosenVariant] = useState(vars[0].node.id);
   // Quantity of the chosen variant
@@ -63,6 +65,7 @@ export default function ProductPageContent({ product }) {
 
   useEffect(() => {
     console.log('ProductPageContent.js - product:', product)
+
     let variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2
       .amount;
 
@@ -93,6 +96,7 @@ export default function ProductPageContent({ product }) {
   };
 
   return (
+<FocusWrapper text={'Staticly Rendeed'}>
     <section className="product-page-content">
       <div>
         <img
@@ -122,5 +126,6 @@ export default function ProductPageContent({ product }) {
         )}
       </div>
     </section>
+</FocusWrapper>
   );
 }

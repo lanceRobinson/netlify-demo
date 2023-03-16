@@ -1,21 +1,16 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import {Badge, Typography} from "@mui/material";
-import {Search} from "@mui/icons-material";
+import {Badge} from "@mui/material";
+import Box from "@mui/material/Box";
+import React from "react";
 import Modal from "@mui/material/Modal";
-import Image from 'next/image'
 
-const styles = {
-    // border: {borderStyle: solid}
-}
 
 const defaultProps = {
     border: '2px solid',
-    bgcolor: 'grey.200',
+    bgcolor: 'pink',
     borderColor: '#05bdba',
-    bgOpacity: '0.5',
+    m:1,
     p: 1,
+    width:'100%'
 
     // style: { width: '5rem', height: '5rem' },
 };
@@ -32,34 +27,32 @@ const modalStyle = {
     p: 4,
 };
 
-
-export default function AlgoliaSearch() {
+export default function FocusWrapper({visible=true, text='',imageSrc, children}) {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
-        // <Box sx={{flexGrow: 1}}>
-        <div position="static" color="transparent">
-            <Toolbar sx={{justifyContent: "end", flexGrow: 1}}>
+
+        <Box sx={{ width: '100%' }}>
+            {!visible ? null :
                 <Badge
-                    badgeContent={"Integrated Apps - Algolia"}
-                    onClick={handleOpen}
+                    badgeContent={text}
+                    display={'flex'}
                     color="primary"
+                    // m={1}
                     anchorOrigin={{
-                        vertical: 'bottom',
+                        vertical: 'top',
                         horizontal: 'left',
                     }}
+                    onClick={imageSrc ? handleOpen : handleClose}
                 >
-                <Box display="flex" justifyContent="end" alignItems={"center"} borderRadius={3} {...defaultProps}>
-                    <Typography variant={"overline"} padding={2}>Search the site</Typography>
-
-                    <div id={'search'} margin={'auto'}></div>
-                </Box>
+                    <Box className="StaticWrapper" borderRadius={3} {...defaultProps}>
+                        {children}
+                    </Box>
                 </Badge>
-
-            </Toolbar>
+            }
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -69,17 +62,15 @@ export default function AlgoliaSearch() {
                 <Box sx={modalStyle}>
                     <img
                         // loader={myLoader}
-                        // src="https://d33wubrfki0l68.cloudfront.net/196079c9dcd7dd82ac51994c0ed1d53f9fcd6b4c/22caa/v3/img/blog/plugin_flow.jpg"
-                        src={'/algolia.jpg'}
+                        src={imageSrc}
+
                         alt="Algolia Flow"
                         width={'100%'}
                         height={'100%'}
                     />
                 </Box>
             </Modal>
-        </div>
-        // </Box>
+        </Box>
 
     );
 }
-

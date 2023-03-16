@@ -1,6 +1,26 @@
 import Link from 'next/link';
+import React, {useEffect} from "react";
+import {formatPrice} from "../utilityFunctions";
+import FocusWrapper from "@components/FocusWrapper";
 
 export default function ProductListing({ product }) {
+
+    // useEffect(() => {
+    //     console.log('ProductPageContent.js - product:', product)
+    //
+    //     if (product) {
+    //         const body = {itemHandle: product.id}
+    //         fetch("/.netlify/functions/getProduct", {
+    //             method: "post",
+    //             body: JSON.stringify(body),
+    //             headers: {"Content-Type": "application/json"},
+    //         }).then(p => console.log('[product].js',p)).catch(e => console.log(e));
+    //
+    //     }
+    // }, [product]);
+
+
+
   let image = product.images.edges[0].node;
   return (
 
@@ -20,5 +40,6 @@ export default function ProductListing({ product }) {
         </a>
       </Link>
     </li>
+
   );
 }
