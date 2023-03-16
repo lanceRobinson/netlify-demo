@@ -96,7 +96,7 @@ export default function ProductPageContent({ product }) {
   };
 
   return (
-<FocusWrapper text={'Staticly Rendeed'}>
+<FocusWrapper text={'Staticly Rendered'}>
     <section className="product-page-content">
       <div>
         <img

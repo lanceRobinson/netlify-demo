@@ -15,6 +15,14 @@ const defaultProps = {
     // style: { width: '5rem', height: '5rem' },
 };
 
+const badgeStyle = {
+    "& .MuiBadge-badge": {
+        width: 35,
+        height: 25,
+        right: `20px`,
+    }
+}
+
 const modalStyle = {
     position: 'absolute',
     top: '50%',
@@ -38,14 +46,16 @@ export default function FocusWrapper({visible=true, text='',imageSrc, children})
         <Box sx={{ width: '100%' }}>
             {!visible ? null :
                 <Badge
+
                     badgeContent={text}
                     display={'flex'}
                     color="primary"
                     // m={1}
                     anchorOrigin={{
                         vertical: 'top',
-                        horizontal: 'left',
+                        horizontal: 'middle',
                     }}
+
                     onClick={imageSrc ? handleOpen : handleClose}
                 >
                     <Box className="StaticWrapper" borderRadius={3} {...defaultProps}>
