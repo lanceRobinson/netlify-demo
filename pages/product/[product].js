@@ -47,3 +47,14 @@ export async function getStaticProps({params}) {
         },
     };
 }
+
+const tourConfig = [
+    {
+        selector:'',
+        content:''
+    },
+    {
+        selector:'',
+        content:''
+    }
+]
