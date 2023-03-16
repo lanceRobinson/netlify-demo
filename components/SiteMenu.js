@@ -93,7 +93,7 @@ export default function SiteMenu() {
 
                         <Button color="inherit" sx={classes.button}>Login</Button>
                         <Link href="/cart">
-                            {/*<Badge badgeContent={cartCount} color="primary">*/}
+                            <Badge badgeContent={cartCount} color="primary">
                             <IconButton
                                 size="large"
                                 edge="end"
@@ -103,7 +103,7 @@ export default function SiteMenu() {
                             >
                                 <ShoppingCartIcon color="inherit"/>
                             </IconButton>
-                            {/*</Badge>*/}
+                            </Badge>
                         </Link>
                     </ButtonGroup>
                 </Toolbar>
