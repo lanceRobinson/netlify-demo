@@ -6,6 +6,7 @@ import {getProductList} from "@api/getProductList";
 import SiteMenu from "@components/SiteMenu";
 
 export default function ProductPage({product}) {
+
     return (
         <div className="container">
             <Head>

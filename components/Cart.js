@@ -6,6 +6,8 @@ import CheckOutForm from "./CheckOutForm";
 import Grid from "@mui/material/Grid";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import FocusWrapper from "@components/FocusWrapper";
+import {Box} from "@mui/material";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -57,7 +59,8 @@ export default function Cart() {
   };
 
   return (
-    <div>
+    <Box sx={{ width: '100%' }} >
+      <FocusWrapper text={"Dynamically Rendered"} width={'%100'} imageSrc={'dynamic-content.png'}>
       {showProducts && products?.length > 0 ? (
         <Grid container
               direction="row"
@@ -85,6 +88,7 @@ export default function Cart() {
           No products to show! Get shopping!
         </div>
       )}
-    </div>
+      </FocusWrapper>
+    </Box>
   );
 }

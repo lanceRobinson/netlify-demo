@@ -1,3 +1,12 @@
+import React from "react";
+import Box from "@mui/material/Box";
+import {Badge} from "@mui/material";
+import FocusWrapper from "@components/FocusWrapper";
+
+
+
+
+
 export default function Footer() {
   return (
     <>
@@ -8,7 +17,9 @@ export default function Footer() {
           </h2>
           <h1>"EXPERIENCE. EXPERTISE. EXCELLENCE."</h1>
         </section>
+
         <section className="app-footer-links">
+
           <ul>
             <li>About</li>
             <li>Company</li>
@@ -22,6 +33,7 @@ export default function Footer() {
             <li>Instagram</li>
             <li>LinkedIn</li>
           </ul>
+
           <div className="newsletter">
             <h2 className="newsletter-title">Sign up for our newsletter:</h2>
             <input
@@ -31,6 +43,7 @@ export default function Footer() {
             />
           </div>
         </section>
+
         <div className="project-credit">
           <p>
             This project is

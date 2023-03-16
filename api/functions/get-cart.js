@@ -17,6 +17,7 @@
  * TODO: Add enhancement for pagination
  */
 
+
 const { postToShopify } = require("./utils/postToShopify");
 
 exports.handler = async (event) => {
